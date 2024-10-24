@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 interface NavProps {
-    className?: string; // Optional className prop
+    className?: string;
 }
 
 export function Nav({ className = '' }: NavProps) {

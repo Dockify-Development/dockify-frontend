@@ -6,7 +6,6 @@ export default function Background() {
   const [circles, setCircles] = useState<Array<{ cx: number, cy: number, r: number, opacity: number }>>([]);
 
   useEffect(() => {
-    // Generate random circle data on the client-side after hydration
     const generatedCircles = [...Array(20)].map(() => ({
       cx: Math.random() * 1000,
       cy: Math.random() * 1000,

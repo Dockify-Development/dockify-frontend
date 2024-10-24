@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Testing</title>
+        <title>Dockify</title>
       </head>
       <body>{children}</body>
     </html>

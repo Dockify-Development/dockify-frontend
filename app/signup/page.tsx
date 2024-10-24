@@ -2,31 +2,25 @@
 
 import Background from "../ui/backgrounds/background2";
 import { Nav } from "../ui/nav";
-import { signup } from "../lib/signup"; // Assuming you have a signup function
+import { signup } from "../lib/signup";
 import React, { useState } from "react";
 
 export default function Page() {
-  // Form state for input values
   const [formData, setFormData] = useState({
     email: "",
     username: "",
     password: ""
   });
 
-  // Handle form submit
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevents default form submission
-
-    // Here, you can call your signup function or API
+    event.preventDefault();
     try {
-      await signup(formData); // Replace with your signup logic
+      await signup(formData);
       console.log("Signup successful");
     } catch (error) {
       console.error("Signup failed", error);
     }
   };
-
-  // Update form values on input change
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
     setFormData((prevData) => ({
@@ -54,7 +48,7 @@ export default function Page() {
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your email"
               value={formData.email}
-              onChange={handleChange} // Capture input changes
+              onChange={handleChange}
             />
           </div>
           
@@ -68,7 +62,7 @@ export default function Page() {
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your username"
               value={formData.username}
-              onChange={handleChange} // Capture input changes
+              onChange={handleChange}
             />
           </div>
           

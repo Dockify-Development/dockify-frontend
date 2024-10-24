@@ -11,21 +11,17 @@ export default function Page() {
         password: ""
       });
     
-      // Handle form submit
       const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault(); // Prevents default form submission
-    
-        // Here, you can call your signup function or API
+        event.preventDefault();
         try {
-          let x = await login(formData); // Replace with your signup logic
+          let x = await login(formData);
           console.log("Login successful");
-          
+
         } catch (error) {
           console.error("Login failed", error);
         }
       };
     
-      // Update form values on input change
       const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = event.target;
         setFormData((prevData) => ({
@@ -64,7 +60,7 @@ export default function Page() {
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your password"
               value={formData.password}
-              onChange={handleChange} // Capture input changes
+              onChange={handleChange}
             />
           </div>
           <div className="flex items-center justify-between">
