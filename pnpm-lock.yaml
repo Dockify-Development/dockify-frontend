@@ -1359,13 +1359,6 @@ snapshots:
       pg-protocol: 1.6.1
       pg-types: 2.2.0
 
-  '@vercel/postgres@0.8.0':
-    dependencies:
-      '@neondatabase/serverless': 0.7.2
-      bufferutil: 4.0.8
-      utf-8-validate: 6.0.3
-      ws: 8.14.2(bufferutil@4.0.8)(utf-8-validate@6.0.3)
-
   abbrev@1.1.1: {}
 
   agent-base@6.0.2:

@@ -6,29 +6,35 @@ import { Nav } from "../ui/nav";
 import { login } from "../lib/login";
 
 export default function Page() {
-    const [formData, setFormData] = useState({
-        identifier: "",
-        password: ""
-      });
+  const [formData, setFormData] = useState({
+    identifier: "",
+    password: "",
+    error: ""
+  });
     
-      const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        try {
-          let x = await login(formData);
-          console.log("Login successful");
-
-        } catch (error) {
-          console.error("Login failed", error);
-        }
-      };
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!formData.identifier || !formData.password) {
+      setFormData((prevData) => ({
+        ...prevData,
+        ["error"]: "Please specify username/email and password."
+      }))
+    }
+    try {
+      let x = await login(formData);
+      console.log("Login successful");
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+  };
     
-      const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { id, value } = event.target;
-        setFormData((prevData) => ({
-          ...prevData,
-          [id]: value
-        }));
-      };
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value
+    }));
+  };
   return (
     <div className='h-screen poppins-regular flex flex-col'>
       <Background />
@@ -71,7 +77,11 @@ export default function Page() {
               Login
             </button>
           </div>
+          <div className="flex flex-grow items-center justify-between">
+            <h3 id="error" className="text-red-500 text-center">{formData.error}</h3>
+          </div>
         </form>
+        
       </div>
     </div>
   );

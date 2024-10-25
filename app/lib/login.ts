@@ -23,5 +23,5 @@ export async function login({ identifier, password } : LoginParams){
             }
         }).then(res => res.json());
     }
-    return "";
+    return new Error();
 }

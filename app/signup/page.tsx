@@ -36,7 +36,7 @@ export default function Page() {
 
       <div className='flex flex-grow items-center justify-center flex-col'>
         <form className="bg-white rounded-lg shadow-lg p-8 w-96" id="form" onSubmit={handleSubmit}>
-          <h1 className="text-4xl font-bold text-gray-700 mb-6 text-center" id="head">Signup</h1>
+          <h1 className="text-4xl font-bold text-gray-700 mb-6 text-center" id="head">Sign up</h1>
           
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -85,7 +85,7 @@ export default function Page() {
               type="submit"
               className="mt-6 rounded bg-purple-800 px-6 py-3 text-white hover:bg-purple-900 transition duration-300 shadow-lg w-full"
             >
-              Signup
+              Sign up
             </button>
           </div>
         </form>

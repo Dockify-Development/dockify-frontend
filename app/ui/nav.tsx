@@ -20,7 +20,7 @@ export function Nav({ className = '' }: NavProps) {
                         <p className="text-gray-300 hover:bg-purple-900 transition duration-300 p-3 rounded-2xl">Login</p>
                     </Link>
                     <Link href="/signup">
-                        <p className="text-gray-300 hover:bg-purple-900 transition duration-300 p-3 rounded-2xl">Signup</p>
+                        <p className="text-gray-300 hover:bg-purple-900 transition duration-300 p-3 rounded-2xl">Sign up</p>
                     </Link>
                     <Link href="/info">
                         <p className="text-gray-300 hover:bg-purple-900 transition duration-300 p-3 rounded-2xl">Info</p>
