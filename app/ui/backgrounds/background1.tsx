@@ -14,16 +14,17 @@ export default function Background() {
     }));
     setCircles(generatedCircles);
   }, []);
+
   return (
     <div className="fixed inset-0 z-[-1] bg-[#0a0014] overflow-hidden">
       <svg
-        viewBox="0 0 1000 1000"
+        viewBox="0 0 1000 2000"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full opacity-70"
-        preserveAspectRatio="none"
+        className="w-full h-[400%]"
+        preserveAspectRatio="xMidYMid slice"
       >
         <defs>
-          <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <radialGradient id="grad1" cx="50%" cy="25%" r="50%" fx="50%" fy="25%">
             <stop offset="0%" stopColor="#3a0069" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#0a0014" stopOpacity="0" />
           </radialGradient>
@@ -39,41 +40,39 @@ export default function Background() {
 
         <rect width="100%" height="100%" fill="url(#grad1)" />
 
-        {[...Array(5)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <g key={i}>
             <path
-              d={`M${i * 200},0 Q${i * 200 + 100},${500 + i * 50} ${i * 200 + 200},1000`}
+              d={`M${i * 200},0 Q${i * 200 + 100},${1000 + i * 50} ${i * 200 + 200},2000`}
               fill="none"
               stroke="url(#grad2)"
               strokeWidth="2"
-              opacity="0.3"
             >
               <animate
                 attributeName="d"
                 dur={`${20 + i * 5}s`}
                 repeatCount="indefinite"
-                values={`M${i * 200},0 Q${i * 200 + 100},${500 + i * 50} ${i * 200 + 200},1000;
-                         M${i * 200},0 Q${i * 200 + 150},${450 + i * 50} ${i * 200 + 200},1000;
-                         M${i * 200},0 Q${i * 200 + 50},${550 + i * 50} ${i * 200 + 200},1000;
-                         M${i * 200},0 Q${i * 200 + 100},${500 + i * 50} ${i * 200 + 200},1000`}
+                values={`M${i * 200},0 Q${i * 200 + 100},${1000 + i * 50} ${i * 200 + 200},2000;
+                         M${i * 200},0 Q${i * 200 + 150},${950 + i * 50} ${i * 200 + 200},2000;
+                         M${i * 200},0 Q${i * 200 + 50},${1050 + i * 50} ${i * 200 + 200},2000;
+                         M${i * 200},0 Q${i * 200 + 100},${1000 + i * 50} ${i * 200 + 200},2000`}
               />
             </path>
           </g>
         ))}
 
         <path
-          d="M0,700 Q250,600 500,700 T1000,700 L1000,1000 L0,1000 Z"
+          d="M0,1400 Q250,1300 500,1400 T1000,1400 L1000,2000 L0,2000 Z"
           fill="url(#grad3)"
-          opacity="0.4"
         >
           <animate
             attributeName="d"
             dur="20s"
             repeatCount="indefinite"
             values="
-              M0,700 Q250,600 500,700 T1000,700 L1000,1000 L0,1000 Z;
-              M0,700 Q250,800 500,700 T1000,700 L1000,1000 L0,1000 Z;
-              M0,700 Q250,600 500,700 T1000,700 L1000,1000 L0,1000 Z
+              M0,1400 Q250,1300 500,1400 T1000,1400 L1000,2000 L0,2000 Z;
+              M0,1400 Q250,1500 500,1400 T1000,1400 L1000,2000 L0,2000 Z;
+              M0,1400 Q250,1300 500,1400 T1000,1400 L1000,2000 L0,2000 Z
             "
           />
         </path>
