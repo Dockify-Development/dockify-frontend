@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react";
-import Background from "../ui/backgrounds/background2";
-import { Nav } from "../ui/nav";
+import Background from "../../components/ui/backgrounds/background2";
+import { Nav } from "../../components/ui/nav";
 import { login } from "../lib/login";
 
 export default function Page() {
@@ -21,8 +21,13 @@ export default function Page() {
       }))
     }
     try {
-      let x = await login(formData);
-      console.log("Login successful");
+      let data = await login(formData);
+      let token = data.token;
+      if (token) {
+        console.log("Login successful");
+        localStorage.setItem("token", token);
+        window.location.href = "/dashboard";
+      }
     } catch (error) {
       console.error("Login failed", error);
     }

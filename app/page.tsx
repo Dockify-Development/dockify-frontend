@@ -1,18 +1,29 @@
 "use client"
 
-import { Nav } from "./ui/nav"
-import animations from "./ui/css/animations.module.css"
+import { Nav } from "../components/ui/nav"
+import animations from "@/components/ui/css/animations.module.css"
 import Link from 'next/link'
-import Background from "./ui/backgrounds/background1"
+import Background from "../components/ui/backgrounds/background1"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import getProfile from "./lib/get_profile"
 
 export default function Page() {
   const [href, setHref] = useState('#')
+  const [title, setTitle] = useState("Welcome to Dockify");
 
   useEffect(() => {
-    localStorage.getItem('token') ? setHref("/dashboard") : setHref("/signup")
+    let token = localStorage.getItem("token")!;
+    if (!token) {
+      setHref("/signup");
+    }
+
+    getProfile({token}).then((profile) => {
+      setTitle("Welcome back, " + profile.username);
+    }).catch(() => {
+      localStorage.removeItem("token");
+    })
   }, [])
 
   return (
@@ -21,7 +32,7 @@ export default function Page() {
       <Nav className={animations.fadein} />
 
       <section className={`flex min-h-screen items-center justify-center flex-col ${animations.fadein}`}>
-        <h1 className="text-6xl font-bold text-white mb-6">Welcome to Dockify</h1>
+        <h1 className="text-6xl font-bold text-white mb-6">{title}</h1>
         <p className="text-gray-400 mb-6 text-xl">Free docker containers for all your hosting dependencies.</p>
         <div className="flex items-center justify-center flex-row">
           <Link href={href}>

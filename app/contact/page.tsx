@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react";
-import Background from "../ui/backgrounds/background2";
-import { Nav } from "../ui/nav";
+import Background from "../../components/ui/backgrounds/background2";
+import { Nav } from "../../components/ui/nav";
 import { login } from "../lib/login";
 
 export default function Page() {
